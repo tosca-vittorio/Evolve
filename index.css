@@ -1,0 +1,625 @@
+/* --- SEZIONE GENERALE --- */
+*
+{
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body 
+{
+    background-color: #1a1919; /* Colore ebano scuro */
+    color: #ffffff; /* Testo bianco per contrasto */
+    font-family: Arial, sans-serif; /* Esempio di famiglia font */
+    margin: 0; /* Rimuove il margine predefinito */
+    padding: 0; /* Rimuove il padding predefinito */
+    display: flex;
+    flex-direction: column; /* Per allineare il contenuto verticalmente */
+    min-height: 100vh; /* Altezza minima pari al 100% della viewport */
+}
+
+
+/* --- SEZIONE LOADER --- */
+.loader
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 9999;
+    transition: opacity 0.5 ease;
+}
+
+.loader div
+{
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* --- SEZIONE HEADER --- */
+.main-header
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 15%;
+    position: relative;
+    z-index: 1000;
+}
+
+.header-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+.header-icon
+{
+    display: flex;
+    width: 7%;
+    height: 7%;
+    margin-left: 50px;
+    margin-right: 100px; 
+}
+
+.header-icon img
+{
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.header-menu-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.header-menu
+{
+    display: flex;
+    justify-content: space-around;
+    width: 85%;
+    height: 75px;
+    margin-right: 1.5%;
+    background-color: rgba(11,12,16,0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.header-menu-item
+{
+    list-style-type: none;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.header-menu-item a
+{
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    transition: color 0.3s ease;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header-menu-item a:hover
+{
+    text-decoration: underline;
+    color: #ffcc00; 
+}
+
+.header-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 15%;
+    margin-left: 1.5%;
+}
+
+.btn
+{
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(37,150,158,255);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, tansform;
+    border: none;
+}
+
+.btn:hover, .btn:focus, .btn:active
+{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+/* --- SEZIONE HERO --- */
+.hero, .hero-content
+{
+    bottom: 145px;
+}
+
+.hero 
+{
+    display: flex;
+    position: relative; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+/* Stile per il contenitore del video */
+.hero-video-container 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+/* Stile per il video di background */
+#hero-video-background 
+{
+    width: 100%; /* Riempi completamente il contenitore */
+    height: 100%; /* Riempi completamente il contenitore */
+    object-fit: cover; /* Scalare e ritagliare l'elemento video per riempire completamente il contenitore */
+}
+
+/* Stile per la sezione .hero-content */
+.hero-content 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* Permette di posizionare sopra la .hero */
+    position: relative; 
+    z-index: 1; /* Assicura che il contenuto sia sopra il video */
+    text-align: center; /* Centra il testo orizzontalmente */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3px;
+    height: 10%;
+}
+
+.hero-content-text 
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    background-image: url('IMG/DSC0094.jpg');
+    background-size: cover;
+    background-position: 100% 60%;
+    bottom: 150px;
+    width: 60%;
+    height: 100%;
+}
+
+.hero-content-title 
+{
+    margin-top: 50px;
+    font-size: 30px;
+    width: 85%;
+    color: #ffffff;
+    z-index: 3;
+    letter-spacing: 5px;
+}
+
+.hero-content-desc 
+{
+    margin-top: 25px;
+    width: 75%;
+    font-size: 2em; /* Esempio di dimensione del testo descrittivo */
+    z-index: 3;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+}
+
+/* Classe per l'overlay dorato */
+.overlay-gold 
+{
+    background-color: rgba(154, 126, 61, 0.5); /* Colore dorato con trasparenza */
+    position: absolute; /* Posizionamento assoluto per coprire l'intero contenitore */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    z-index: 0; 
+    pointer-events: none; /* Permette di cliccare attraverso l'overlay */
+    border-radius: 10px;
+}
+
+
+/* Contenitore del bottone */
+.hero-button-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Altezza del contenitore del bottone */
+    position: relative;
+    z-index: 3;
+    margin-bottom: 20px;
+
+}
+
+/* Bottone */
+.hero-button 
+{
+    background-color: #ffd700; /* Colore dorato */
+    color: #1a1919; /* Colore del testo */
+    border: none; /* Nessun bordo */
+    border-radius: 25px; /* Bordi arrotondati */
+    padding: 15px 30px; /* Padding per aumentare la dimensione del bottone */
+    font-size: 16px; /* Dimensione del font */
+    font-weight: bold; /* Testo in grassetto */
+    cursor: pointer; /* Cursore puntatore */
+    text-transform: uppercase; /* Testo in maiuscolo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    transition: background-color 0.3s, transform 0.3s; /* Transizioni fluide */
+}
+
+.hero-button:hover {
+    background-color: #e6be00; /* Colore dorato più scuro all'hover */
+    transform: scale(1.05); /* Espansione leggera all'hover */
+}
+
+.hero-button:active {
+    background-color: #ccaa00; /* Colore dorato ancora più scuro al click */
+    transform: scale(0.95); /* Riduzione leggera al click */
+}
+
+/* --- SEZIONE CONTENT --- */
+.content 
+{
+    position: absolute;
+    top: 133%; /* Utilizza una percentuale per mantenere il layout responsivo */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 0;
+}
+
+.first-row-content
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    color: rgba(11, 12, 16, 0.8);
+    padding: 5px;
+}
+
+.second-row-content
+{
+    margin-top: 1.5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+    color: rgba(11, 12, 16, 0.8);
+    padding: 5px;
+}
+
+.first-row-content-text, .second-row-content-text
+{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgb(154, 126, 61);
+}
+
+.content-text-title h1 
+{
+    font-size: 2.3em;
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+.content-text-desc p 
+{
+    font-size: 1.3em;
+    letter-spacing: 1.7px;
+    line-height: 1.5em;
+    color: white;
+}
+
+.first-row-content-images, .second-row-content-images
+{
+    /*border: 3px solid orange;*/
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 5px;
+}
+
+/* --- SEZIONE SWIPER/CAROUSEL --- */
+.swiper-container 
+{
+    width: 100%;
+    /*max-width: 600px;*/
+    height: 500px;
+    border: 2px solid silver;/*#ccc;*/
+    /*background-color: white;*/
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .swiper-slide img 
+  {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    cursor: grabbing;
+  }
+
+  .swiper-button-next, .swiper-button-prev 
+  {
+    width: 50px; /* larghezza */
+    height: 50px; /* altezza */
+    background-color: rgb(154, 126, 61); /* #333;  rgb(11, 12, 16);*/
+    color: #fff; /* colore del testo */
+    font-size: 24px; /* dimensione del testo */
+    border-radius: 50%; /* bordi arrotondati */
+    top: 50%; /* posizione verticale */
+    transform: translateY(-50%); /* per centrare verticalmente */
+    /* Altri stili CSS desiderati */
+    position: absolute;
+    z-index: 1;
+    border: 3px solid silver;
+    cursor: pointer;
+}
+
+.swiper-button-prev 
+{
+    left: 5%;
+}
+
+.swiper-button-next 
+{
+    right: 5%;
+}
+
+/* --- SEZIONE INFO-POINT --- */
+.overlay-ebony 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.85); /* Colore ebano con trasparenza scura */
+    z-index: 1; /* Assicura che l'overlay sia sopra altri elementi */
+}
+
+.info-point-container
+{
+    background-image: url('IMG/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -250%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.info-point-title
+{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1; /* Assicura che l'overlay sia sopra altri elementi */
+    top: 0px;
+    width: 70%;
+}
+
+.info-point-subtitle,
+.info-point-uptitle
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.info-point-uptitle h1
+{
+    position: relative;
+    font-size: 2em;
+    color: whitesmoke;
+}
+
+.info-point-subtitle h1
+{
+    position: relative;
+    font-size: 2em;
+    color: whitesmoke;
+}
+
+.info-point-subtitle
+{
+    bottom: 27.5px;
+    font-size: 1.5em;
+    position: relative;
+    top: -55px;
+
+}
+
+.info-point-subtitle h1,
+.info-point-uptitle h1
+{
+    font-weight: 300;
+}
+
+
+.info-point-content
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-point-content-address,
+.info-point-content-phone,
+.info-point-content-time
+{
+    width: 33%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1; /* Assicura che l'overlay sia sopra altri elementi */
+}
+
+.info-point-content-phone .info-point-text p
+{
+    font-size: 1.2em;
+}
+
+.info-point-content-address .info-point-text p
+{
+    font-size: 1.1em;
+}
+
+.info-point-content-address span,
+.info-point-content-phone span
+{   
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 3px;
+}
+
+.info-point-icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 25%;
+    position: relative;
+    z-index: 1; /* Assicura che l'overlay sia sopra altri elementi */
+}
+
+.info-point-icon img
+{
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.info-point-text
+{
+    position: relative;
+    z-index: 1; /* Assicura che l'overlay sia sopra altri elementi */
+    bottom: 25px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    box-sizing: border-box;
+}
+
+.info-point-content-time .info-point-text span
+{
+    line-height: 33px;
+}
